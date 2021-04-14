@@ -14,6 +14,7 @@ $('.js-guess').click(function(){
 			$('.js-psy-' + key).append('<div class="result__one">' + last_guess[key] + '</div>');
 		}
 		$('.js-right-answer').show();
+		$('.error').remove();
 	})
 });
 
@@ -34,10 +35,12 @@ $('.js-check').click(function(){
 			$('.user-input').append('<div class="user-input__item">' + value + '</div>');
 			$('.js-guess').prop('disabled', false);
 			$('.js-right-answer').hide();
-			$('.js-input').val('')
+			$('.js-input').val('');
+			$('.error').remove();
 		});
 	} else {
 		console.log('не двузначное число');
+		$('.js-check').after('<p class="error"><br>Это не двузначное число!</p>');
 	}
 });
 
